@@ -5,8 +5,10 @@ response = requests.get("https://www.careerguide.com/career-options")
 
 soup = BeautifulSoup(response.text, "html.parser")
 
+container = soup.select("div.col-md-4")
 category_soup = soup.select("h2.c-font-bold")
 
+print(len(container))
 print(len(category_soup))
 print("heading: ", category_soup[0])
 print("a tag inside heading: ", category_soup[0].select_one("a"))
